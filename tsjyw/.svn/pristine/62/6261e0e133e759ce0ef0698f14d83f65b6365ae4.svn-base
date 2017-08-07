@@ -1,0 +1,61 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>资讯分类</title>
+      <%@include file="WeChatheader.jsp" %>
+    <link rel="stylesheet" href="../phone/css/articletype.css">
+</head>
+<body ontouchstart>
+<div>
+	<!-- 新的 -->
+	<div class="header">
+		<div class="back" onclick="history.back()"></div>
+    	<div class="title">文章分类</div>
+	</div>
+	<div class="list_box">
+  		</a>
+  		<c:if test="${not empty sessionScope.nav_menu}"> 
+ 			<c:forEach var="menu" items="${sessionScope.nav_menu}">  
+				<c:if test="${menu.moduleTypeId!=4}">
+					<a class="list_item" href="../WeChat/ShowModule?moduleId=${menu.moduleId}">
+						<div class="img_box">
+							<img src="../phone/image/1.jpg" alt="">
+						</div>
+				    	<div class="name">${menu.moduleName}</div>
+					</a>
+ 					<c:if test="${not empty menu.childrenModule}">
+						<c:forEach var="submenu" items="${menu.childrenModule}">
+							<c:if test="${submenu.moduleTypeId!=4}">
+								<a class="list_item" href="../WeChat/ShowModule?moduleId=${submenu.moduleId}">
+									<div class="img_box">
+										<img src="../phone/image/1.jpg" alt="">
+									</div>
+									<div class="name">${submenu.moduleName}</div>
+								</a>
+							</c:if>                  
+						</c:forEach>
+					   </c:if>
+				</c:if>
+ 			</c:forEach>
+ 		</c:if>
+	</div>
+	<!-- /新的 -->
+</div>
+<hr/>
+<%@include file="WeChatBottom.jsp" %>
+</div>
+        <!-- @end 活动中心  add by hanjw 20150917-->     
+
+        <script src="../js/wappv.js"></script>   
+        <script src="../js/touch.min.js"></script>
+        <%@include file="WeChatToolbar.jsp" %>
+</body>
+</html>

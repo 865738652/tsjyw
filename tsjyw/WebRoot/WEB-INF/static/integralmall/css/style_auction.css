@@ -1,0 +1,213 @@
+.right{float:right; width:230px;}
+
+li{list-style:none;}
+
+.mod_wrap{border:1px solid #C9C9C9;padding:10px;margin-bottom:10px;}
+
+.intro{margin-bottom:10px;}
+
+.login{background-color:#F4F4F4;}
+
+.login p{color:#595959;width:175px;margin:0 auto;margin-top:10px;text-align:center;}
+
+.login a{color:#FFF;}
+
+.login #login{background-color:#56A0E5;color:#FFF;width:175px;margin:0 auto;text-align:center;line-height:32px;font-weight:700;font-size:14px;}
+
+.login a:hover{text-decoration:none;}
+
+.left{float:left; width:950px;padding:1px;margin-bottom:10px;}
+
+
+
+#userinfo {}
+.userloading{text-align: center;padding: 10px;background-color: #FFF;width: 220px;line-height: 30px; float:left; margin-bottom:20px;}
+#userinfo .avatar{float:left;border:1px dotted #cdcdcd;padding:3px;}
+
+#userinfo .a_hl{float:left;width:130px;padding:5px 5px 5px 10px;}
+
+#user_details p {padding:8px 0 0 0;}
+
+em{color:#F26C4F;}
+
+.mod_wrap h3{height:32px;line-height:32px;padding-left:10px;background-color:#EEE;color:#1B7FC6;font-weight:700;}
+
+.tops ul{padding:5px 10px;border-bottom:1px dotted #cdcdcd;}
+
+.tops a{color:#515187;}
+
+.tops .y {width:48px;text-align:center;}
+
+.tops .y img{height:48px;width:48px;}
+
+.aucd{background:#FFF url("../../../../source/plugin/auction/images/list_bg.gif") repeat-x;padding-top:5px;}
+
+.aucd h2{color:#1B7FC6;padding-bottom:5px;font-size:16px;}
+
+.aucd .y{font-size:12px;}
+
+.aucdd{width:170px;margin:1px;float:left;}
+
+.aucdd:hover{background-color:#F2F2F2;}
+
+.aucdd .pic{margin:0 auto 10px auto;width:146px;overflow:hidden;position:relative;}
+
+.pic p{}
+
+.pic img{vertical-align:middle;padding-right:10px;border:1px solid #CDCDCD;padding:2px;height:140px;width:140px;}
+
+.a_ct{text-align:center;}
+
+.pic .timeline{font-size:16px;color:#000;font-weight:700;font-family:Arial, Helvetica, sans-serif;}
+
+.y a{color:#999;}
+
+.pncc{background:url("../../../../source/plugin/auction/images/invo.gif");width:110px;height:28px;border:none;margin:0 auto;cursor:pointer;}
+
+.pncc_h{background:url("../../../../source/plugin/auction/images/invo_h.gif");width:110px;height:28px;border:none;margin:0 auto;cursor:pointer;}
+
+.pic .a_lt{padding:0;text-align:center;}
+
+.pic .a_ct a{
+
+background: url('../../../../source/plugin/auction/images/auction.png') 3px 0 no-repeat;
+
+width: 70px;
+
+height: 22px;
+
+display: block;
+
+line-height: 200px;
+
+overflow: hidden;
+
+margin: 8px auto 4px;
+
+cursor: pointer;
+
+font-size: 0;
+
+}
+
+.pic del{
+
+background:url('../../../../source/plugin/auction/images/rmy.png') no-repeat 0 3px;padding-left:7px;
+
+}
+
+.pic em{color:#E11114;font-weight:700;}
+
+
+
+.pic .a_lt a{background: url('../../../../source/plugin/auction/images/dealed.gif') 3px 0 no-repeat;
+
+width: 75px;
+
+height: 22px;
+
+display: block;
+
+line-height: 200px;
+
+overflow: hidden;
+
+margin: 4px auto;
+
+cursor: pointer;
+
+font-size: 0;
+
+}
+
+.a_hl{height: 22px; overflow: hidden;}
+
+.number{height: 42px; left: 0px; top: 0px; width: 43px; z-index: 116; position: absolute;cursor:default;background:url(../../../../source/plugin/auction/images/attention.gif) no-repeat;line-height:100px;overflow:hidden;}
+
+.ausc{height:27px;line-height:27px;font-size:14px;margin-right:6px;padding-left:35px;background:url(../../../../source/plugin/auction/images/src.png) no-repeat 5px 5px;width:446px;}
+
+#sctype_ctrl,#sctime_ctrl{height:31px;line-height:31px;background:url(../../../../source/plugin/auction/images/arrwd.gif) no-repeat 100% 50%;}
+
+#search_submit{height:33px;line-height:33px;}
+
+
+
+.sc_h_l{background:url(../../../../source/plugin/auction/images/h_l.gif) no-repeat;padding:0;float:left;}
+
+.sc_h_r{background:url(../../../../source/plugin/auction/images/h_r.gif) no-repeat;padding:0;float:right;}
+
+.left h3{background:url(../../../../source/plugin/auction/images/h__.gif) repeat-x;line-height:31px;width:950px;}
+
+.sc_cnt{border-left:1px solid #CDCDCD;border-right:1px solid #CDCDCD;border-bottom:1px solid #CDCDCD;}
+
+.auc_ls{width:900px;border-bottom:1px dashed #CDCDCD;padding:20px;margin:auto;}
+
+
+
+.ls_p{float:left; width:76px;height:76px;border:1px solid #CDCDCD;margin-right:5px;}
+
+.ls_p img{width:76px;height:76px;}
+
+.ls_d{height:66px;float:left;padding:5px 0 5px 5px;line-height:22px;width:300px;overflow:hidden;}
+
+.ls_d a{color:#535353;font-weight:700;}
+
+.auc_ls .pic .a_ct{float:right; margin:20px 0;width:75px;}
+
+.auc_ls .timeline{float:left;font-size:22px;font-weight:700;line-height:76px;}
+
+.auc_ls .pic .a_lt a{float:right; margin:26px 0 14px;width:75px;}
+
+.auc_ls del{background:url('../../../../source/plugin/auction/images/rmy.png') no-repeat 0 3px;padding-left:7px;}
+
+.my_p{float:left;width:104px;word-break:break-all;height:18px;overflow:hidden;}
+
+.a_n{text-align:center;height:18px;overflow:hidden;}
+
+.a_n a{color:#1B7FC6;}
+
+.ls_dd{float:left;width:120px;}
+
+
+.shopleft{ width:940px; height:auto; float:left;}
+.sh_lone{ width:940px; height:auto; float:left; background-color:#FFF; margin-bottom:20px; clear:both;}
+.shtitle{ margin:0 20px; height:55px; line-height:55px; border-bottom:1px solid #f0f0f0; font-size:20px; color:#444444;}
+.shtitle span{ height:55px; border-bottom:1px solid #325096; display:inline-block; padding:0 10px;}
+.sh_more{ font-size:14px; color:#999999; float:right;}
+.sh_more:link,.sh_more:hover,.sh_more:active,.sh_more:visited{color:#999999;}
+.shword{ width:930px; height:auto; float:left; padding:20px 5px;}
+.shwLI{ width:202px; height:300px; padding-bottom:15px; float:left; margin:0 15px; overflow:hidden;}
+.shliimg{ width:202px; height:176px; float:left; position:relative;}
+.shliimg img{width:202px; height:176px;}
+.shwLI p{ width:202px; font-size:14px; color:#333; line-height:25px; text-align:center; display:inline-block;}
+.shwLI p.shname{ font-size:16px; line-height:30px; color:#000; float:left;}
+.shwLI p.sh_money{ color:#ff7b2a; margin-bottom:15px;}
+.shwLI p.sh_button{ width:100px; height:25px; line-height:25px; text-align:center; border-radius:5px; overflow:hidden; background-color:#e53935; color:#FFF; display:block; margin:0 auto;}
+.shwLI p.sh_button2{ width:80px; height:25px; line-height:25px; text-align:center; border-radius:5px; overflow:hidden; background-color:#cccccc; color:#FFF; display:block; margin:0 auto;}
+
+.shopright{ width:240px; float:right;}
+.shopimg{ width:240px; height:95px; float:left; margin-bottom:20px;}
+.sh_viewleft{ width:238px; border:1px solid #efefef; float:left; margin-bottom: 20px;}
+.sh_viewword{ width:188px; padding:20px 25px 30px 25px; float:left; background-color:#FFF;}
+.sh_viewLimg{ width:130px; height:130px; border-radius:65px; overflow:hidden; margin:0 auto; border:1px solid #e9e9e9; margin-bottom:15px;}
+.sh_viewLimg img{ width:120px; height:120px; border-radius:60px; margin:5px;}
+.sh_viewLname{ text-align:center; line-height:25px; height:25px; color:#333333; font-size:14px;}
+.sh_viewLname span{vertical-align:middle; padding-left:5px;}
+.jf_span{ width:94px; float:left; font-size:12px; color:#666; line-height:25px; overflow:hidden;}
+
+
+.persbutoncz{ width:80px; height:35px; display:block; color:#FFF;line-height:35px; background-color:#8ed030;font-size:12px; border-radius:5px; overflow:hidden; text-align:center; float:left; margin-left:54px;}
+.persbutoncz:link,.persbutoncz:hover,.persbutoncz:active,.persbutoncz:visited{color:#FFF;}
+.sh_Rtit{ width:220px; height:40px; line-height:40px; background-color:#f9f9f9; color:#333; font-size:14px; border-bottom:1px solid #e5e5e5; padding-left:20px;}
+.sh_Rbot{ width:200px; padding:20px; float:left; background-color:#FFF;}
+.sh_Rimg{width:90px; height:80px; overflow:hidden; float:left;}
+.sh_Rp{ width:100px; height:auto; float:left; margin-left:10px; font-size:12px; display:block;}
+.sh_Rp1,.sh_Rp2{ width:100px; height:20px; line-height:20px; overflow:hidden; display:block; float:left;}
+.sh_Rp1{ color:#000;}
+.sh_Rp1 .order{ background-color:#ff7b2a; color:#FFF; width:15px;  height:15px; line-height:15px; float:left; margin-top:2px; text-align:center; margin-right:3px; border-radius:2px; overflow:hidden;}
+.sh_Rp2{ color:#666;}
+.sh_Rp2 span{ color:#ff6709;}
+.sh_Rp3{ width:100px; height:20px; display:block; float:left;}
+.sh_Rp3 .sh_button{ width:80px; height:25px; line-height:25px; text-align:center; border-radius:5px; overflow:hidden; background-color:#e53935; color:#FFF; display:block; }
+
+

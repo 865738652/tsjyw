@@ -1,0 +1,234 @@
+/* 全局样式*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+body>div,
+form>div {
+    margin: 0 auto;
+}
+
+div {
+    text-align: left;
+}
+
+a img {
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+select,
+input,
+textarea {
+    font: 12px "宋体";
+    outline: none;
+}
+
+body {
+    text-align: center;
+    font: 12px "宋体";
+}
+
+ul,
+ol,
+li {
+    list-style-type: none;
+    vertical-align: 0;
+}
+
+a {
+    outline-style: none;
+    color: #666666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a,
+area {
+    blr: expression(this.onFocus=this.blur())
+}
+
+:focus {
+    -moz-outline-style: none;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden
+}
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    height: 0;
+    display: block;
+    visibility: hidden;
+}
+
+.keChgImg {
+    height: 215px;
+    width: 307px;
+    /*border: 5px solid #CCCCCC;*/
+
+    background: #FFF;
+    position: relative;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.keImgs li {
+    float: left;
+    height: 215px;
+    width: 307px;
+}
+
+.keImgs {
+    height: 215px;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.keImgTitleBg {
+    line-height: 20px;
+    background: #FFF;
+    height: 20px;
+    width: 307px;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    opacity: 0.6;
+    filter: alpha(opacity=60)
+}
+
+.keImgBtn {
+    float: right;
+    position: absolute;
+    bottom: -1px;
+    right: 0px;
+}
+
+.keImgBtn ul li {
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    padding-top: 2px;
+    position: relative;
+    color: #FFF;
+    cursor: pointer;
+    font: 14px "宋体";
+}
+
+.keCor1 {
+    background: #f72e07;
+    float: left;
+}
+
+.keCor2 {
+    background: #f75007;
+    float: left;
+}
+
+.keCor3 {
+    background: #f77807;
+    float: left;
+}
+
+.keCor4 {
+    background: #f7c107;
+    float: left;
+}
+
+.keCor5 {
+    background: #f7e907;
+    float: left;
+}
+
+.keImgBtn ul li img {
+    display: none;
+    position: absolute;
+    left: 3px;
+    top: 0px;
+}
+
+.keImgBtn ul li.keImgCutLi img {
+    display: block
+}
+
+.keChgBtnL {
+    position: absolute;
+    left: 0px;
+    top: 97px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+}
+
+.keChgBtnR {
+    position: absolute;
+    right: 0px;
+    top: 97px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+}
+
+.keImgTxt {
+    height: 20px;
+    width: 215px;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #3797BD;
+    text-align: left;
+    text-indent: 10px;
+    overflow: hidden
+}
+
+.keImgTxt li {
+    vertical-align: middle;
+    line-height: 20px;
+    height: 20px;
+    width: 215px;
+    overflow: hidden;
+}
+
+.keImgTxt a {
+    color: #000;
+    /*font-family: Arial;*/
+}

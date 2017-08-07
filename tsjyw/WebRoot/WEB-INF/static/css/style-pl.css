@@ -1,0 +1,35 @@
+﻿@charset "UTF-8";
+
+.dot{display:block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+/*公共-评论*/
+.qp_like{display:none;position:absolute;}
+.qp_pageprompt,.qp_prompt{background-color:orange;border-radius:5px;color:white;display:none;font-size:14px;font-weight:bold;padding:10px;position:fixed;top:150px;z-index:9999;}
+.send{float: right;width: 110px;height: 46px;font-size: 14px;color: #fff;border:0 none;background-color: #f03232;border-radius: 5px;margin-top: 20px;cursor: pointer;}
+.comment_heading{height:47px;border-bottom:1px #ebebeb solid; background-color:#FFF;}
+.comment_heading .title{display: inline-block;height: 45px;border-bottom:2px #f03232 solid; padding-left:15px; padding-right:15px;color: #f03232;font-size: 16px;line-height: 45px;}
+.comment_list{padding:20px 20px 10px;border-bottom: 1px #ebebeb dotted;font-size:14px;color:#464646; background-color:#FFF;}
+.comment_list dt{float:left;width: 50px;height:50px;overflow:hidden;border-radius: 25px;}
+.comment_list dt img{ width:50px; height:50px;}
+.comment_list dd{margin-left: 70px;line-height: 24px;}
+.ploneRname{color:#f03232;}
+.ploneTime{color:#8c8c8c;font-size: 12px;}
+.ploneRt{float: right;height: 26px;}
+.ploneRtjpl,.ploneRzanone{float: right;background-image: url(../images/comment_icon.png);background-repeat: no-repeat;color:#a0a0a0;cursor:pointer;}
+.ploneRtjpl{padding-left: 28px;}
+.ploneRzanone{background-position: 0 -26px;padding-left: 23px;margin-right: 15px;}
+.comment_area{margin-top: 12px;border:1px #ebebeb solid;border-bottom:0 none;background-color: #fafafa; overflow:hidden;}
+.comment_area dl{border-bottom:1px #ebebeb solid;padding: 10px; min-height:50px;}
+.comment_area dd{margin-left: 60px;}
+.ploneinput{position: relative;height:auto; min-height:36px; border:1px #ebebeb solid;background:none;}
+/*.rt_title{position: absolute;padding-left: 10px;line-height: 36px;color:#969696; width:158px; float:left; overflow:hidden;}
+.rt_title i{color:#323232;}*/
+.plinput{margin-left:0px;width:728px;height:52px;line-height:26px; padding:5px 10px; border:0 none;color:#323232;overflow-y:auto;}
+.plbuttonimg{width: 70px;height: 30px;text-align: center;line-height: 30px;margin-top: 10px;}
+.twomore{ width:750px; height:40px; min-height:40px; background-color:#FFF; text-align:center; line-height:40px; color:#333;}
+.openmore{ color:#333; width:100%; height:100%; display:block; background:none; cursor:pointer; border:1px solid #ebebeb; border-top:none;}
+.commMore1 a:link, .commMore1 a:hover, .commMore1 a:active, .commMore1 a:visited {color: #f03232;}
+.comment_list a:link, .comment_list a:hover, .comment_list a:active, .comment_list a:visited {color: #f03232;}
+.ploneRword {
+  overflow-wrap: break-word;
+  word-wrap:break-word;
+}

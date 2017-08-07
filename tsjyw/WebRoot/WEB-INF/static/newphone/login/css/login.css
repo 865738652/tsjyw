@@ -1,0 +1,252 @@
+﻿@charset "utf-8";
+.header {
+	height: 1.19rem;
+	overflow: hidden;
+	border-bottom: 1px #f0f0f0 solid;
+	background-color: #3498ff;
+}
+
+.logo,
+.registered-guide {
+	text-align: center;
+}
+
+.logo {
+	float: left;
+	margin: auto 0.33rem;
+}
+
+.logo img {
+	width: 3rem;
+	height: 1.17rem;
+}
+
+.header-title {
+	position: absolute;
+	text-align: center;
+	width: 10rem;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+}
+
+.header-title h1 {
+	color: #FFFFFF;
+	font-weight: bold;
+	line-height: 1.19rem;
+	pointer-events: none;
+}
+
+.registered-guide {
+	float: right;
+	margin: auto 0.33rem;
+	cursor: pointer;
+}
+
+.registered-guide a {
+	color: #FFFFFF;
+	float: right;
+	cursor: pointer;
+}
+
+.registered-guide i {
+	background: url(../images/lg-registered-bg.png) no-repeat center;
+	width: 0.33rem;
+	height: 1.19rem;
+	display: inline-block;
+	float: left;
+}
+
+.registered-guide h1 {
+	color: #FFFFFF;
+	font-weight: bold;
+	line-height: 1.19rem;
+}
+
+.view {
+	background: transparent;
+	padding-top: 0.88rem;
+}
+
+.input-area {
+	width: 9.19rem;
+	margin: 0 auto;
+	
+	border: 2px #d3d3d3 solid;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.input-box {
+	position: relative;
+	width: 9.19rem;
+	height: 1.19rem;
+}
+
+.input-box img {
+	width: 0.86rem;
+	height: 1.15rem;
+	margin-left: 0.15rem;
+}
+
+
+.input-box input {
+	color: #666;
+	border: 0;
+	border-style: none;
+	height: 1.2rem;
+	width: 6.95rem;
+	background: transparent;
+}
+
+#clear_userName,
+#show_pwd {
+	width: 0.73rem;
+	height: 1.15rem;
+	margin-right: 0.35rem;
+}
+
+.notify {
+	width: 100%;
+	text-align: center;
+	height: 0.5rem;
+	color: #ff0000;
+	overflow: hidden;
+    margin-top:0.6rem;
+}
+
+.notify p {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.do-login {
+	width: 9.2rem;
+	height: 1.07rem;
+	margin: 0.69rem auto 0;
+}
+
+.do-login p {
+	width: 9.2rem;
+	height: 1.07rem;
+	border-radius: 0.1rem;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	line-height: 1.07rem;
+}
+
+.unactive {
+	background: #8c8c8c;
+}
+
+.active {
+	background: #3498ff;
+}
+
+.forget,
+.forget a {
+	margin: 0 auto;
+	text-align: right;
+	width: 9.2rem;
+	color: #999;
+	padding-top: 0.43rem;
+}
+
+.other-login {
+	padding-top: 1.2rem;
+	width: 9.36rem;
+	margin: 0 auto;
+}
+
+.other-login img {
+	width: 9.36rem;
+	height: 0.43rem;
+}
+
+.third-party {
+	padding-top: 0.85rem;
+	width: 4.67rem;
+	margin: 0 auto;
+}
+
+.third-party img {
+	width: 1.55rem;
+	height: 1.55rem;
+}
+
+
+/*字体通配*/
+
+[data-dpr="1"] .header-title h1 {
+	font-size: 17px;
+}
+
+[data-dpr="2"] .header-title h1 {
+	font-size: 34px;
+}
+
+[data-dpr="3"] .header-title h1 {
+	font-size: 51px;
+}
+
+[data-dpr="1"] .registered-guide h1 {
+	font-size: 17px;
+}
+
+[data-dpr="2"] .registered-guide h1 {
+	font-size: 34px;
+}
+
+[data-dpr="3"] .registered-guide h1 {
+	font-size: 51px;
+}
+
+[data-dpr="1"] .input-box input {
+	font-size: 16px;
+}
+
+[data-dpr="2"] .input-box input {
+	font-size: 32px;
+}
+
+[data-dpr="3"] .input-box input {
+	font-size: 48px;
+}
+
+[data-dpr="1"] .do-login p {
+	font-size: 19px;
+}
+
+[data-dpr="2"] .do-login p {
+	font-size: 38px;
+}
+
+[data-dpr="3"] .do-login p {
+	font-size: 57px;
+}
+
+[data-dpr="1"] .forget,
+.forget a {
+	font-size: 12px;
+}
+
+[data-dpr="2"] .forget,
+.forget a {
+	font-size: 24px;
+}
+
+[data-dpr="3"] .forget,
+.forget a {
+	font-size: 36px;
+}
+
+
+.input-bottom-line{
+	border-bottom: 2px #d3d3d3 solid;
+}
+
+
+.getcode{ width:3.5rem;border-left: 1px #999 solid;}
+.getcode img{width:2.9rem; height:1.15rem;}

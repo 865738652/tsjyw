@@ -1,0 +1,309 @@
+@charset "utf-8";
+.clear {
+	visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.block {
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-attachment:fixed;
+}
+#header{
+    position: fixed;
+    width: 100%;
+	height: 2.16rem;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+#footer{}
+.wrapper {
+	background-color: #f7f7f7;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.header-top {
+	display: block;
+	background: #3498ff;
+	height: 1.17rem;
+	overflow: hidden;
+	z-index: 101;
+}
+
+.user-center{
+	float: left;
+	z-index: 103;
+	height: 1.17rem;
+}
+.user-center img{
+	width: 1.02rem;
+	height: 1.17rem;
+}
+.logo {
+    position: relative;
+    width: auto;
+    z-index: 102;
+    display: inline-block;
+    height: 1.17rem;
+    margin: 0 2.44rem;
+}
+
+.logo img {
+	width: 3.07rem;
+	height: 1.17rem;
+}
+
+.search {
+	z-index: 103;
+	float: right;
+	height: 1.17rem;
+}
+
+.search img {
+	width: 1.02rem;
+	height: 1.17rem;
+}
+
+.header-nav,.header-nav ul {
+	float: left;
+	width: 100%;
+    height: 0.9rem;
+	text-align: center;
+	background: #f5f5f5;
+}
+
+.header-nav li {
+	float: left;
+	width: 16.66%;
+	line-height: 0.9rem;
+	color: #333;
+	/*border-bottom: 2px #000000 solid;*/
+}
+
+.header-nav img {
+	position: absolute;
+	right: 1.02rem;
+	top: 0.001rem;
+	width: 0.22rem;
+	height: 1.15rem;
+}
+
+.on {
+	color: #3498ff !important;
+}
+
+.login-warn {
+	position: absolute;
+	top: 2.1rem;
+	left: 0;
+	width: 100%;
+	height: 1rem;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 9999;
+	display: none;
+}
+
+.login-warn section {
+	display: table;
+	width: 100%;
+	height: inherit;
+	overflow: hidden;
+}
+
+.login-warn p {
+	color: #FFFFFF;
+	padding-left: 0.4rem;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	width: 90%;
+}
+
+.login-warn p>a {
+    color: #ffd800 !important;
+	font-weight: bold;
+	margin: 0 0.1rem;
+}
+
+.close-warn {
+	display: table-cell;
+	vertical-align: middle;
+	margin-right: 0.5rem;
+}
+
+.close-warn img {
+	width: 0.32rem;
+	height: 0.32rem;
+}
+
+.swiper-view {
+	position: relative;
+	width: 100%;
+    padding-top: 2.1rem;
+}
+.swiper-title{
+	position: absolute;
+    display: block;
+    vertical-align: middle;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    padding: 2% 0;
+    overflow: hidden;
+}
+.swiper-title-text{
+	display: inline-block;
+    margin: 0 0.3rem;
+    color: #FFFFFF;
+    width: 75%;
+    height: 100%;
+    line-height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.head-slider{
+	width: 100%;
+	height: 5.54rem;
+}
+
+.footer {
+	background: #f7f7f7;
+}
+
+.footer ul {
+	padding: 0.53rem 0;
+}
+
+.mb30 {
+	margin-bottom: 0.27rem;
+}
+
+.footer-nav,
+.company,
+.copyright {
+	text-align: center;
+}
+
+.footer-nav {
+	color: #333;
+	font-weight: bold;
+}
+
+.footer-nav span {
+	color: #d7d7d7;
+}
+
+.company,
+.copyright {
+	color: #8C8C8C;
+}
+
+#goTop{
+	position: fixed;
+    bottom: 10%;
+    right: 5%;
+    display: none;
+}
+#goTop img{
+    width: 1rem;
+    height: 1rem;
+}
+/*字体通配*/
+
+[data-dpr="1"] .swiper-title-text {
+	font-size: 12px;
+}
+
+[data-dpr="2"] .swiper-title-text {
+	font-size: 24px;
+}
+
+[data-dpr="3"] .swiper-title-text {
+	font-size: 36px;
+}
+
+[data-dpr="1"] .header-nav li {
+	font-size: 17px;
+}
+
+[data-dpr="2"] .header-nav li {
+	font-size: 34px;
+}
+
+[data-dpr="3"] .header-nav li {
+	font-size: 51px;
+}
+
+[data-dpr="1"] .footer-nav {
+	font-size: 16px;
+}
+
+[data-dpr="2"] .footer-nav {
+	font-size: 32px;
+}
+
+[data-dpr="3"] .footer-nav {
+	font-size: 48px;
+}
+
+[data-dpr="1"] .company {
+	font-size: 14px;
+}
+
+[data-dpr="1"] .copyright {
+	font-size: 12px;
+}
+
+[data-dpr="2"] .company {
+	font-size: 24px;
+}
+
+[data-dpr="2"] .copyright {
+	font-size: 22px;
+}
+
+[data-dpr="3"] .company {
+	font-size: 38px;
+}
+
+[data-dpr="3"] .copyright {
+	font-size: 36px;
+}
+
+[data-dpr="1"] .login-warn p {
+	font-size: 12px;
+}
+
+[data-dpr="2"] .login-warn p {
+	font-size: 24px;
+}
+
+[data-dpr="3"] .login-warn p {
+	font-size: 36px;
+}

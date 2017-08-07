@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>   
+<beans:beans xmlns="http://www.springframework.org/schema/security"  
+ xmlns:beans="http://www.springframework.org/schema/beans"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+ xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+ http://www.springframework.org/schema/security  
+ http://www.springframework.org/schema/security/spring-security-4.0.xsd">   
+  	
+  	<beans:bean id="entryPoint" class="org.springframework.security.web.authentication.DelegatingAuthenticationEntryPoint">
+    <beans:constructor-arg>
+        <beans:map>
+        <!-- 用于配置拦截未授权情况下的ajax访问，并返回相应错误代码，当matcher中的matches方法返回true时，会调用EntryPoint中对应的commence方法  -->
+            <beans:entry>
+                <beans:key>
+                    <beans:bean class="edu.iasd.security.AjaxRequestMatcher" />
+                </beans:key>
+                <beans:bean class="edu.iasd.security.Http401EntryPoint" />
+            </beans:entry>
+        </beans:map>
+    </beans:constructor-arg>
+    <!-- LoginUrlAuthenticationEntryPoint ：跳转到登录页面  -->
+    <beans:property name="defaultEntryPoint">
+        <beans:bean class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+            <!--  LoginFormUrl -->
+            <beans:constructor-arg value="/Account/Login"/>
+        </beans:bean>
+    </beans:property>
+	</beans:bean>
+  	
+  	
+  	<!-- 当用户请求了一个受保护的资源，但是用户没有通过认证，那么抛出异常，AuthenticationEntryPoint. Commence(..)就会调用 -->
+ 	<http auto-config="true" use-expressions="true" entry-point-ref="entryPoint">
+		<intercept-url pattern="/index.jsp" access="permitAll" /> 
+		<intercept-url pattern="/favicon.ico" access="permitAll" />
+		<intercept-url pattern="/Account/Login" access="permitAll" /> 
+		<intercept-url pattern="/Account/userRegister" access="permitAll" /> 
+		<intercept-url pattern="/Account/Denied" access="permitAll" /> 
+		<intercept-url pattern="/Account/Register" access="permitAll" />
+		<intercept-url pattern="/Account/Authenticate" access="permitAll" />
+		<intercept-url pattern="/Account/Treaty" access="permitAll" />
+		<intercept-url pattern="/ResetPassword/**" access="permitAll" />
+		
+		<intercept-url pattern="/Index/MyExchange" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/Index/**" access="permitAll" />
+		<intercept-url pattern="/Weixin/**" access="permitAll" />
+		<intercept-url pattern="/WeChat/**" access="permitAll" />
+		<intercept-url pattern="/School/**" access="permitAll" />
+		<intercept-url pattern="/css/**" access="permitAll" />
+		<intercept-url pattern="/images/**" access="permitAll" />
+		<intercept-url pattern="/img/**" access="permitAll" />
+		<intercept-url pattern="/Index/**" access="permitAll" />
+		<intercept-url pattern="/js/**" access="permitAll" />
+		<intercept-url pattern="/myjs/**" access="permitAll" />
+		<intercept-url pattern="/fonts/**" access="permitAll" />
+		<intercept-url pattern="/upload/**" access="permitAll" />
+		<intercept-url pattern="/ueditor/**" access="permitAll" />
+		<intercept-url pattern="/phone/**" access="permitAll" />
+		<intercept-url pattern="/integralmall/**" access="permitAll" />
+		
+		<intercept-url pattern="/shopping/**" access="permitAll" />
+		<intercept-url pattern="/newphone/**" access="permitAll" />
+		<intercept-url pattern="/buygoods/**" access="permitAll" />
+		<intercept-url pattern="/bower_components/**" access="permitAll" />
+		<intercept-url pattern="/bootstraptable/**" access="permitAll" />
+		<intercept-url pattern="/bootstrapdatepicker/**" access="permitAll" />
+		<intercept-url pattern="/bootstrapdatetimepicker/**" access="permitAll" />
+		<intercept-url pattern="/bootstraptreeview/**" access="permitAll" />
+		<intercept-url pattern="/select/**" access="permitAll" />
+		
+		
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		
+		<form-login login-page="/Account/Login" login-processing-url="/Account/Authenticate" 
+			username-parameter="userName" 
+			password-parameter="password"			
+			authentication-failure-url="/Account/Login?error=true"  
+			authentication-success-handler-ref="authenticationSuccessHandler"
+			default-target-url="/Admin/" /> 
+		<csrf request-matcher-ref="csrfSecurityRequestMatcher"/> 
+		<headers>
+	        <frame-options policy="SAMEORIGIN"/>
+	    </headers>
+		<logout logout-url="/j_spring_security_logout"
+			success-handler-ref="adminLogoutSuccessHandler"/>   
+		<access-denied-handler ref="accessDeniedHandler"/> 
+		<http-basic />    
+		<!-- 增加一个filter，这点与Acegi是不一样的，不能修改默认的filter了，这个filter位于FILTER_SECURITY_INTERCEPTOR之前 -->   
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR"  ref="myFilter" />
+	</http>   
+
+	<!-- 一个自定义的filter，必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性 -->   
+	<beans:bean id="myFilter" class="edu.iasd.security.MyFilterSecurityInterceptor">  
+		<beans:property name="authenticationManager" ref="authenticationManager" />   
+		<beans:property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />   
+		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />   
+	</beans:bean>   
+
+	<!-- 认证管理器，实现用户认证的入口，主要实现UserDetailsService接口即可 -->   
+	<authentication-manager alias="authenticationManager">  
+		<authentication-provider user-service-ref="myUserDetailService">  
+		<!-- 如果用户的密码采用加密的话，可以加点“盐”  
+		<password-encoder hash="md5"/>  
+		-->   
+		</authentication-provider>   
+	</authentication-manager>   
+	<beans:bean id="myUserDetailService" class="edu.iasd.security.MyUserDetailService">
+		<beans:property name="viewUserDao" ref="viewUserDao" /> 
+		<beans:property name="userDao" ref="userDao" /> 
+	</beans:bean>
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->   
+	<beans:bean id="myAccessDecisionManagerBean"  class="edu.iasd.security.MyAccessDecisionManager" />
+
+	<!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->   
+	<beans:bean id="securityMetadataSource" class="edu.iasd.security.MyInvocationSecurityMetadataSource" /> 
+	
+	<beans:bean id="accessDeniedHandler" class="edu.iasd.security.MyAccessDeniedHandler">
+		<beans:property name="accessDeniedUrl" value="../Account/Denied" />
+	</beans:bean>
+	
+	<beans:bean id="authenticationSuccessHandler" class="edu.iasd.security.CustomLoginHandler">  
+	    <beans:property name="privilegeService" ref="privilegeService" />
+    	<beans:property name="defaultTargetUrl" value="/Admin/"/>  
+	</beans:bean>
+	
+	<beans:bean id="adminLogoutSuccessHandler" class="edu.iasd.security.CustomLogoutHandler">
+	    <!--<beans:property name="defaultTargetUrl" value="/Account/Login"/>-->
+	    <beans:property name="defaultTargetUrl" value="/Index/"/>
+	</beans:bean>
+	
+	
+	
+	<beans:bean id="csrfSecurityRequestMatcher" class="edu.iasd.security.CsrfSecurityRequestMatcher">
+        <beans:property name="execludeUrls">
+            <beans:list>
+                <beans:value>/UEditorManage/</beans:value>
+                <beans:value>/Weixin/</beans:value>
+                <beans:value>/WeChat/</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+</beans:beans>  

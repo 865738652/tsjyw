@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:beans="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/security  
+		http://www.springframework.org/schema/security/spring-security-3.0.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<context:component-scan base-package="edu.iasd" >
+		<!--  将controller排除在外，意味着这个时候不初始化controller	-->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	<!-- 
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="synchronizeOnSession" value="true" />
+		<property name="customArgumentResolvers">
+			<list>
+				<bean class="edu.iasd.search.SearchMethodArgumentsResolver" />
+			</list>
+		</property>
+	</bean>
+-->
+	<bean name="startQuertz" lazy-init="false" autowire="no"  
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+        <property name="triggers">  
+            <list>  
+                <ref bean="myJobTrigger" />  
+            </list>  
+        </property>  
+    </bean>
+    
+     <!-- quartz-2.x的配置 -->  
+    <bean id="myJobTrigger"  
+        class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="myJobDetail" />  
+        </property>  
+        <property name="cronExpression">  
+
+            <value>0 15 10 15 * ?</value>  
+ 
+
+        </property>  
+    </bean>  
+    <!-- 调度的配置结束 -->  
+  
+    <!-- job的配置开始 -->  
+    <bean id="myJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="myJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>work</value>  
+        </property>  
+        <property name="concurrent"><!--配置为false不允许任务并发执行--> 
+     		<value>false</value> 
+    	</property> 
+    </bean>  
+    
+    <bean id="myJob" class="edu.iasd.wechat.utils.TimingTaskUtil" />  
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://127.0.0.1:3306/tsjyw" />
+	    <property name="username" value="root" />
+	    <property name="password" value="123456" />
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false"/>
+
+	<bean id="hedao" 
+        class="com.demonstration.hibernate.dao.HibernateEntityDao" scope="prototype">
+        <property name="sessionFactory"> 
+            <ref bean="sessionFactory" /> 
+        </property> 
+    </bean>
+    <bean id="hexdao" 
+        class="com.demonstration.hibernate.dao.extend.HibernateEntityExtendDao" scope="prototype">
+        <property name="sessionFactory"> 
+            <ref bean="sessionFactory" /> 
+        </property> 
+    </bean>
+    
+    <bean id="baseDao" class="com.demonstration.hibernate.basedao.BaseDao" 
+        abstract="true" depends-on="hedao,hexdao"> 
+        <property name="hedao"> 
+            <ref bean="hedao" /> 
+        </property> 
+        <property name="hexdao"> 
+            <ref bean="hexdao" /> 
+        </property> 
+    </bean> 
+    
+    <bean id="schoolDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.School</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewSchoolDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewSchool</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="noticeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Notice</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="noticeStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.NoticeState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="noticeAcceptDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.NoticeAccept</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="noticeAcceptTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.NoticeAcceptType</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewNoticeAcceptDao" parent="baseDao">
+    	<constructor-arg>
+    		<value>edu.iasd.pojo.ViewNoticeAccept</value>
+    	</constructor-arg>
+    </bean>
+    
+    <bean id="myfansDao" parent="baseDao">
+    	<constructor-arg>
+    		<value>edu.iasd.pojo.MyFans</value>
+    	</constructor-arg>
+    </bean>
+    
+    
+    <bean id="schoolTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.SchoolType</value> 
+        </constructor-arg> 
+    </bean>
+
+	<bean id="teacherDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Teacher</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewTeacherDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewTeacher</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="userDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.User</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="roleDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Role</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="businessManagerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.BusinessManager</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewBusinessManagerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewBusinessManager</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="teacherStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.TeacherState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewNoticeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewNotice</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="moduleDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Module</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewModuleDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewModule</value> 
+        </constructor-arg> 
+    </bean>
+        
+    <bean id="moduleStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ModuleState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="moduleTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ModuleType</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="articleStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ArticleState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="articleDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Article</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="messageDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Message</value> 
+        </constructor-arg> 
+    </bean>
+    
+    
+    
+    <bean id="viewArticleDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewArticle</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="imageDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Image</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="videoDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Video</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="countyDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.County</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewCountyDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewCounty</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="goodsTypeDao" parent="baseDao">
+    	<constructor-arg>
+    		<value>edu.iasd.pojo.GoodsType</value>
+    	</constructor-arg>
+    </bean>
+    
+    <bean id="viewGoodsTypeDao" parent="baseDao">
+    	<constructor-arg>
+    		<value>edu.iasd.pojo.ViewGoodsType</value>
+    	</constructor-arg>
+    </bean>
+    
+    <bean id="countyManagerDao" parent="baseDao">
+    	<constructor-arg> 
+            <value>edu.iasd.pojo.CountyManager</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewCountyManagerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewCountyManager</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="askQuestionDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.AskQuestion</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="askQuestionStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.AskQuestionState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="askQuestionTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.AskQuestionType</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="respQuestionDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.RespQuestion</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewAskQuestionDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewAskQuestion</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewRespQuestionDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewRespQuestion</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="attachmentDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Attachment</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="attachmentTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.AttachmentType</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="ageLevelDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.AgeLevel</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="gradeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Grade</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewGradeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewGrade</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="schoolManagerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.SchoolManager</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewSchoolManagerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewSchoolManager</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="schoolCourseDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.SchoolCourse</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewCourseDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewCourse</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="schoolCourseStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.SchoolCourseState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="schoolClassDao" parent="baseDao">
+    	<constructor-arg> 
+            <value>edu.iasd.pojo.SchoolClass</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewSchoolClassDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewSchoolClass</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="goodsDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Goods</value> 
+        </constructor-arg> 
+    </bean>
+    <bean id="viewGoodsDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewGoods</value> 
+        </constructor-arg> 
+    </bean>
+    <bean id="goodsStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.GoodsState</value> 
+        </constructor-arg> 
+    </bean>
+    <bean id="businessDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Business</value> 
+        </constructor-arg> 
+    </bean>
+   
+    
+    <bean id="viewUserDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewUser</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="famousTeacherDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.FamousTeacher</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewFamousTeacherDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewFamousTeacher</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="applyDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Apply</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewApplyDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewApply</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="applyStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ApplyState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="gradeMasterDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.GradeMaster</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewGradeMasterDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewGradeMaster</value> 
+        </constructor-arg> 
+    </bean> 
+    
+    <bean id="classMasterDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ClassMaster</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewClassMasterDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewClassMaster</value> 
+        </constructor-arg> 
+    </bean> 
+    
+    <bean id="volunteerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Volunteer</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewVolunteerDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewVolunteer</value> 
+        </constructor-arg> 
+    </bean>
+    
+     <bean id="studentDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Student</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewStudentDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewStudent</value> 
+        </constructor-arg> 
+    </bean> 
+    
+     <bean id="studentStateDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.StudentState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="adminMenuDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.AdminMenu</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="exchangeRecordDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ExchangerRecord</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="exchangeRecordStateDao" parent="baseDao">
+    	<constructor-arg> 
+            <value>edu.iasd.pojo.ExchangeRecordState</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="replyDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Reply</value> 
+        </constructor-arg> 
+    </bean>
+    
+    
+    <bean id="viewExchangeRecordDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewExchangeRecord</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewBusinessDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewBusiness</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="advertisementDao" parent="baseDao">
+    	<constructor-arg>
+    		<value>edu.iasd.pojo.Advertisement</value>
+    	</constructor-arg>
+    </bean>
+    <bean id="viewAdvertisementDao" parent="baseDao">
+    	<constructor-arg>
+    		<value>edu.iasd.pojo.ViewAdvertisement</value>
+    	</constructor-arg>
+    </bean>
+    
+    <bean id="privilegeService" class="edu.iasd.service.PrivilegeServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="roleDao">
+			<ref bean="roleDao" />
+		</property>
+		<property name="adminMenuDao">
+			<ref bean="adminMenuDao" />
+		</property>
+	</bean>
+	<bean id="netCourseDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.NetCourse</value> 
+        </constructor-arg> 
+    </bean> 
+    <bean id="netCourseTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.NetCourseType</value> 
+        </constructor-arg> 
+    </bean> 
+       
+    <bean id="viewNetCourseDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewNetCourse</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewNetCourseTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewNetCourseType</value> 
+        </constructor-arg> 
+    </bean>
+    <!-- 评论 -->
+    	<bean id="commentDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.Comment</value> 
+        </constructor-arg> 
+    </bean> 
+    <bean id="commentTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.CommentType</value> 
+        </constructor-arg> 
+    </bean> 
+       
+    <bean id="viewCommentDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewComment</value> 
+        </constructor-arg> 
+    </bean>
+    
+    <bean id="viewCommentTypeDao" parent="baseDao"> 
+        <constructor-arg> 
+            <value>edu.iasd.pojo.ViewCommentType</value> 
+        </constructor-arg> 
+    </bean>
+    
+    
+	<!--    
+    <bean id="teacherService" class="edu.iasd.service.TeacherServiceImpl">
+		<property name="teacherDao">
+			<ref bean="teacherDao" />
+		</property>
+		<property name="viewTeacherDao">
+			<ref bean="viewTeacherDao" />
+		</property>
+		<property name="schoolDao">
+			<ref bean="schoolDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="teacherStateDao">
+			<ref bean="teacherStateDao" />
+		</property>
+	</bean>
+	
+	<bean id="moduleService" class="edu.iasd.service.ModuleServiceImpl">
+		<property name="moduleDao">
+			<ref bean="moduleDao" />
+		</property>
+		<property name="viewModuleDao">
+			<ref bean="viewModuleDao" />
+		</property>
+		<property name="moduleTypeDao">
+			<ref bean="moduleTypeDao" />
+		</property>
+		<property name="moduleStateDao">
+			<ref bean="moduleStateDao" />
+		</property>
+		<property name="schoolDao">
+			<ref bean="schoolDao" />
+		</property>
+	</bean>	
+	
+	<bean id="articleService" class="edu.iasd.service.ArticleServiceImpl">
+		<property name="articleDao">
+			<ref bean="articleDao" />
+		</property>
+		<property name="viewArticleDao">
+			<ref bean="viewArticleDao" />
+		</property>
+		<property name="articleStateDao">
+			<ref bean="articleStateDao" />
+		</property>
+		<property name="moduleDao">
+			<ref bean="moduleDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="imageDao">
+			<ref bean="imageDao" />
+		</property>
+		<property name="videoDao">
+			<ref bean="videoDao" />
+		</property>
+	</bean>	
+	
+	<bean id="schoolService" class="edu.iasd.service.SchoolServiceImpl">
+		<property name="countyDao">
+			<ref bean="countyDao" />
+		</property>
+		<property name="viewSchoolDao">
+			<ref bean="viewSchoolDao" />
+		</property>
+		<property name="schoolDao">
+			<ref bean="schoolDao" />
+		</property>
+		<property name="schoolTypeDao">
+			<ref bean="schoolTypeDao" />
+		</property>
+	</bean>	
+    
+    <bean id="countyService" class="edu.iasd.service.CountyServiceImpl">
+		<property name="countyDao">
+			<ref bean="countyDao" />
+		</property>
+		<property name="viewCountyDao">
+			<ref bean="viewCountyDao" />
+		</property>
+	</bean>
+	
+	<bean id="goodsTypeService" class="edu.iasd.service.GoodsTypeServiceImpl">
+		<property name="goodsTypeDao">
+			<ref bean="goodsTypeDao" />
+		</property>
+		<property name="viewGoodsTypeDao">
+			<ref bean="viewGoodsTypeDao" />
+		</property>
+	</bean>
+	
+	<bean id="countyManagerService" class="edu.iasd.service.CountyManagerServiceImpl">
+		<property name="countyManagerDao">
+			<ref bean="countyManagerDao" />
+		</property>
+		<property name="countyDao">
+			<ref bean="countyDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="viewCountyManagerDao">
+			<ref bean="viewCountyManagerDao" />
+		</property>		
+	</bean>
+
+	<bean id="askQuestionService" class="edu.iasd.service.AskQuestionServiceImpl">
+		<property name="askQuestionDao">
+			<ref bean="askQuestionDao" />
+		</property>
+		<property name="askQuestionStateDao">
+			<ref bean="askQuestionStateDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="askQuestionTypeDao">
+			<ref bean="askQuestionTypeDao" />
+		</property>	
+		<property name="respQuestionDao">
+			<ref bean="respQuestionDao" />
+		</property>	
+		<property name="viewAskQuestionDao">
+			<ref bean="viewAskQuestionDao" />
+		</property>	
+		<property name="viewRespQuestionDao">
+			<ref bean="viewRespQuestionDao" />
+		</property>	
+		<property name="attachmentDao">
+			<ref bean="attachmentDao" />
+		</property>	
+		<property name="attachmentTypeDao">
+			<ref bean="attachmentTypeDao" />
+		</property>		
+		<property name="ageLevelDao">
+			<ref bean="ageLevelDao" />
+		</property>	
+	</bean>
+
+	<bean id="gradeService" class="edu.iasd.service.GradeServiceImpl">
+		<property name="gradeDao">
+			<ref bean="gradeDao" />
+		</property>
+		<property name="schoolDao">
+			<ref bean="schoolDao" />
+		</property>
+		<property name="viewGradeDao">
+			<ref bean="viewGradeDao" />
+		</property>		
+	</bean>
+	
+	<bean id="SchoolManagerService" class="edu.iasd.service.SchoolManagerServiceImpl">
+		<property name="schoolManagerDao">
+			<ref bean="schoolManagerDao" />
+		</property>
+		<property name="viewSchoolManagerDao">
+			<ref bean="viewSchoolManagerDao" />
+		</property>
+		<property name="schoolDao">
+			<ref bean="schoolDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+	</bean>		
+	
+	<bean id="courseManageService" class="edu.iasd.service.CourseManageServiceImpl">
+		<property name="schoolCourseDao">
+			<ref bean="schoolCourseDao" />
+		</property>
+		<property name="viewCourseDao">
+			<ref bean="viewCourseDao" />
+		</property>
+		<property name="schoolCourseStateDao">
+			<ref bean="schoolCourseStateDao" />
+		</property>
+		<property name="schoolDao">
+			<ref bean="schoolDao" />
+		</property>
+	</bean>	
+	<bean id="netCourseService" class="edu.iasd.service.NetCourseServiceImpl">
+		<property name="netCourseDao">
+			<ref bean="netCourseDao" />
+		</property>
+		<property name="viewNetCourseDao">
+			<ref bean="viewNetCourseDao" />
+		</property>
+		<property name="netCourseTypeDao">
+			<ref bean="netCourseTypeDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="famousTeacherDao">
+			<ref bean="famousTeacherDao" />
+		</property>
+	</bean>
+	
+	<bean id="goodsService" class="edu.iasd.service.GoodsServiceImpl">
+		<property name="goodsDao">
+			<ref bean="goodsDao" />
+		</property>
+		<property name="viewGoodsDao">
+			<ref bean="viewGoodsDao" />
+		</property>
+		<property name="goodsStateDao">
+			<ref bean="goodsStateDao" />
+		</property>
+		<property name="businessDao">
+			<ref bean="businessDao" />
+		</property>
+		<property name="goodsTypeDao">
+			<ref bean="goodsTypeDao" />
+		</property>
+	</bean>
+	
+	<bean id="schoolClassService" class="edu.iasd.service.SchoolClassServiceImpl">
+		<property name="schoolClassDao">
+			<ref bean="schoolClassDao" />
+		</property>
+		<property name="viewSchoolClassDao">
+			<ref bean="viewSchoolClassDao" />
+		</property>	
+		<property name="gradeDao">
+			<ref bean="gradeDao" />
+		</property>	
+	</bean>
+	
+	<bean id="userService" class="edu.iasd.service.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="viewUserDao">
+			<ref bean="viewUserDao" />
+		</property>
+	</bean>
+	
+	<bean id="famousTeacherService" class="edu.iasd.service.FamousTeacherServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="famousTeacherDao">
+			<ref bean="famousTeacherDao" />
+		</property>
+		<property name="viewFamousTeacherDao">
+			<ref bean="viewFamousTeacherDao" />
+		</property>
+		<property name="askQuestionTypeDao">
+			<ref bean="askQuestionTypeDao" />
+		</property>	
+		<property name="ageLevelDao">
+			<ref bean="ageLevelDao" />
+		</property>	
+	</bean>
+	
+	<bean id="applyService" class="edu.iasd.service.ApplyServiceImpl">
+		<property name="applyDao">
+			<ref bean="applyDao" />
+		</property>
+		<property name="viewApplyDao">
+			<ref bean="viewApplyDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="askQuestionTypeDao">
+			<ref bean="askQuestionTypeDao" />
+		</property>	
+		<property name="applyStateDao">
+			<ref bean="applyStateDao" />
+		</property>			
+		<property name="ageLevelDao">
+			<ref bean="ageLevelDao" />
+		</property>	
+	</bean>
+	
+	<bean id="gradeMasterService" class="edu.iasd.service.GradeMasterServiceImpl">
+		<property name="gradeMasterDao">
+			<ref bean="gradeMasterDao" />
+		</property>
+		<property name="viewGradeMasterDao">
+			<ref bean="viewGradeMasterDao" />
+		</property>	
+		<property name="gradeDao">
+			<ref bean="gradeDao" />
+		</property>	
+		<property name="teacherDao">
+			<ref bean="teacherDao" />
+		</property>	
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>	
+		<property name="teacherStateDao">
+			<ref bean="teacherStateDao" />
+		</property>
+	</bean>
+	
+	<bean id="classMasterService" class="edu.iasd.service.ClassMasterServiceImpl">
+		<property name="classMasterDao">
+			<ref bean="classMasterDao" />
+		</property>
+		<property name="viewClassMasterDao">
+			<ref bean="viewClassMasterDao" />
+		</property>	
+		<property name="schoolClassDao">
+			<ref bean="schoolClassDao" />
+		</property>	
+		<property name="teacherDao">
+			<ref bean="teacherDao" />
+		</property>	
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>	
+		<property name="teacherStateDao">
+			<ref bean="teacherStateDao" />
+		</property>
+	</bean>
+	
+	<bean id="volunteerService" class="edu.iasd.service.VolunteerServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="volunteerDao">
+			<ref bean="volunteerDao" />
+		</property>
+		<property name="viewVolunteerDao">
+			<ref bean="viewVolunteerDao" />
+		</property>
+		<property name="askQuestionTypeDao">
+			<ref bean="askQuestionTypeDao" />
+		</property>	
+		<property name="ageLevelDao">
+			<ref bean="ageLevelDao" />
+		</property>	
+	</bean>
+
+	<bean id="studentService" class="edu.iasd.service.StudentServiceImpl">
+		<property name="studentDao">
+			<ref bean="studentDao" />
+		</property>
+		<property name="viewStudentDao">
+			<ref bean="viewStudentDao" />
+		</property>
+		<property name="schoolClassDao">
+			<ref bean="schoolClassDao" />
+		</property>
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+		<property name="studentStateDao">
+			<ref bean="studentStateDao" />
+		</property>
+	</bean>
+	-->
+</beans>

@@ -1,0 +1,123 @@
+.home-device {
+	margin:5px 10px;
+	position:relative;
+	/* box-shadow: 0px 0px 5px #000; */
+}
+.home-device .arrow-left {
+	background:url(../image/arrows.png) no-repeat left top;
+	position:absolute;
+	left:10px;
+	top:50%;
+	margin-top:-15px;
+	width:17px;
+	height:30px;
+	z-index:888;
+}
+.home-device .arrow-right {
+	background:url(../image/arrows.png) no-repeat left bottom;
+	position:absolute;
+	right:10px;
+	top:50%;
+	margin-top:-15px;
+	width:17px;
+	height:30px;
+	z-index:888;
+}
+.swiper-main {
+	height: 240px;
+	position: relative;
+}
+
+.swiper1, .swiper1 .swiper-slide {
+	width:100%;
+	height: 100%;
+}
+.pagination1 {
+	text-align: center;
+	margin-top: 5px;
+}
+/* Pagination */
+.pagination1 .swiper-pagination-switch {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: #999;
+	box-shadow: 0px 1px 2px #555 inset;
+	margin: 0 3px;
+	cursor: pointer;
+}
+.pagination1 .swiper-active-switch {
+	background: #fff;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle;
+}
+
+
+@media screen and (max-width:700px){
+.home-device {
+	margin:5px 10px;
+	position:relative;
+	/* box-shadow: 0px 0px 5px #000; */
+}
+.home-device .arrow-left {
+	background:url(../image/arrows.png) no-repeat left top;
+	position:absolute;
+	left:10px;
+	top:50%;
+	margin-top:-15px;
+	width:17px;
+	height:30px;
+	z-index:888;
+}
+.home-device .arrow-right {
+	background:url(../image/arrows.png) no-repeat left bottom;
+	position:absolute;
+	right:10px;
+	top:50%;
+	margin-top:-15px;
+	width:17px;
+	height:30px;
+	z-index:888;
+}
+.swiper-main {
+	height: 240px;
+	position: relative;
+}
+
+.swiper1, .swiper1 .swiper-slide {
+	width:100%;
+	height: 100%;
+}
+.swiper-img {
+	width:100%;
+	height:100%;
+}
+.pagination1 {
+	text-align: center;
+	margin-top: 5px;
+}
+/* Pagination */
+.pagination1 .swiper-pagination-switch {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: #999;
+	box-shadow: 0px 1px 2px #555 inset;
+	margin: 0 3px;
+	cursor: pointer;
+}
+.pagination1 .swiper-active-switch {
+	background: #fff;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle;
+}
+
+	}

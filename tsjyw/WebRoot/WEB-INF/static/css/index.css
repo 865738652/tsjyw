@@ -1,0 +1,204 @@
+﻿@charset "UTF-8";
+.fullwrap{background-color: #f0f0f0;padding: 30px 0;}
+.castwrap{float: left;width: 770px;height: 300px;}
+.swiper-container{backface-visibility:hidden;direction:ltr;margin:0 auto;overflow:hidden;position:relative;width:770px;height:300px;}
+.swiper-wrapper{width:100%;position:relative;transform:translate3d(0px,0px,0px);transition-duration:0s;transition-property:transform,left,top;transition-timing-function:ease;}
+.swiper-slide{float:left;position:relative;}
+.castwrap img{height:300px;width:460px;}
+.castwrap .description{background:#393f48 none repeat scroll 0 0;height:280px;padding:20px 20px 0;width:270px;}
+.castwrap .title{color:#fff;display:block;font-size:20px;font-weight:bold;height:60px;line-height:30px;overflow:hidden;}
+.castwrap .content{color:#99a3b1;display:block;font-size:14px;height:144px;line-height:22px;overflow:hidden;padding-top:15px;}
+.arrow-left,.arrow-right{font-size: 0;position: absolute;bottom:0;width: 44px;height: 44px;background-color: #434a54;}
+.arrow-left{background-position: -82px -296px;right:45px;}
+.arrow-right{background-position: -126px -296px;right:0}
+.swiper-pagination-switch{background:#fff none repeat scroll 0 0;cursor:pointer;display:inline-block;margin:0 5px 0 0;width:20px;height:6px;}
+.swiper-active-switch{background:#f03232 none repeat scroll 0 0;}
+.hotNews-wrap{margin-left: 810px;width: 320px;height: 300px;position: relative;padding: 0 20px;background-color: #fff;}
+.hotNews-date{position: absolute;right:20px;top:-19px;height: 65px;width: 70px;overflow:hidden;border-radius:5px;box-shadow:0 2px #f3f2f2;}
+.hotNews-month{display: block;height: 19px;background-color: #325096;border-bottom:2px #e5e5e5 solid;font-size: 10px;color:#fff;line-height: 18px;text-align: center;}
+.hotNews-day{display: block;width: 100%;font:30px/44px Arial;color:#464646;text-align: center;background-color:#f2f2f2;background-image:linear-gradient(#fdfdfd, #f1f1f1 50%,#fff 51%);}
+.hotNews-tit{position: relative;height: 68px;line-height: 68px;border-bottom:1px dashed #e6e6e6;}
+.hotNewsH2{font-size: 24px;color:#282828;}
+.hotNewsTag{font:12px/68px Arial;color:#969696;position: absolute;top:6px;left:100px;text-transform:uppercase;}
+.hotNewsList{padding-top: 7px;}
+.hotNewsList li:first-child{border-top:0 none;}
+.hotNewsList li{height: 50px;padding: 10px 0;overflow:hidden;border-top:1px dashed #e6e6e6;}
+.hotNewsList a{font-size: 16px;line-height: 26px;color:#282828;}
+.hotNewsList a:hover{font-weight: bold;color:#325096;}
+.news-wrap{float: left;width: 770px;overflow: hidden;position: relative;}
+.index-h2Tit{height: 40px;border-bottom:2px #ebebeb solid;}
+.index-h2{border-bottom:2px #f03232 solid;width: 104px;}
+.index-h2_noL,.index-h2{font-size: 20px;line-height: 40px;color:#323232;}
+.index-more{font: 12px/30px "SimSun";color:#999;position: absolute;bottom: 5px;right:0}
+.reportList{height: 286px;overflow: hidden;width: 810px;position: relative;margin-left: -30px;}
+.reportList li{float: left;margin: 30px 0 0 30px;padding:3px;width: 362px;height: 247px;border:1px #e6e6e6 solid;}
+.reportImg{width: 362px;max-width: 362px;max-height: 181px;}
+.reportLink{display: block; text-align:center;}
+.reportTxt{display: block;height: 52px;overflow: hidden;padding: 8px 12px 0;font-size: 16px;color: #282828;line-height: 26px; text-align:left;}
+/*.reportList{height: 285px;overflow: hidden;width: 810px;*position: relative;}
+.reportList li{padding:30px 40px 20px 0;float: left;width:365px;height: 102px;overflow:hidden;border-bottom: 1px #d2d2d2 dotted;position: relative;}
+.reportList li:after{position: absolute;content: "\20";right: 20px;top:26px;background-color: #e6e6e6;width: 1px;height: 90px;}
+.reportImgLink,.reportImg{float: left;width: 165px;height: 102px;}
+.reportContent{margin-left: 185px;width: 179px;height: 102px;overflow: hidden;}
+.reportLink{font-size: 15px;line-height: 20px;color:#323232;display: block;height: 40px;overflow: hidden;}
+.reportLink:hover{font-weight: bold;color:#325096;}
+.reportTxt{padding-top: 10px;font-size: 13px;line-height: 18px;color:#969696;}*/
+.newsUpdate{position: absolute;right: 0;bottom:0;width: 115px;height: 30px;background-color: #b4b4b4;color:#fff;font-size: 14px;line-height: 30px;text-align: center;border-radius: 5px 5px 0 0}
+.newsUpdate a{ color:white;}
+.newsList{overflow: hidden;}
+.newsList li{height: 135px;overflow: hidden;padding: 30px 0;border-bottom: 1px #d2d2d2 dotted;*vertical-align: top;}
+.newsList-more{display: block;height: 43px;line-height: 42px;background-color: #ddd;font-size: 15px;color: #555;text-align: center;}
+.newsList-more:hover{background-color: #325096;color:#fff;}
+.newsImgLink{float: left;}
+.newsImgLink,.newsImgLink img{width: 218px;height: 135px;}
+.newsContent{margin-left: 238px;width: 532px;height: 135px;}
+.newsTit{height: 34px;}
+.newsTit .chanping,.newsTit .youxi,.newsTit .jishu,.newsTit .hangye,.newsTit .ruanjian{float: left;margin-top: 8px;}
+.chanping,.youxi,.jishu,.hangye,.ruanjian{border-radius:2px;color:#fff;display:inline-block;font:12px/1 Arial,"SimSun";padding:3px 0;text-align:center;width:30px;}
+.chanping{background-color:#82cc6f;}
+.youxi{background-color:#e85a5a;}
+.jishu{background-color:#6ebfda;}
+.hangye{background-color:#f7ae46;}
+.ruanjian{background-color:#7376fb;}
+.newTxtLink{display: block;margin-left: 44px;font-size: 20px;line-height: 34px;color:#323232;}
+.newTxtLink:hover{font-weight: bold;color:#325096;}
+.news-date{font:14px/24px Arial;color:#8c8c8c;height: 24px;}
+.ellipsis{display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.newsDes{padding-top: 4px;font-size: 13px;line-height: 20px;color:#8c8c8c;margin-bottom: 6px;height: 40px;overflow: hidden;}
+.arrow-left,.arrow-right,.reviews,.visited,.dictionary_dl dd,.index_contribute .img,.pcType,.mobileType,.column_wiki_prev,.column_wiki_next{background-image: url(../images/index.png);background-repeat:no-repeat;}
+.reviews,.visited{float: right;display: inline;color:#8c8c8c;font-size: 14px;line-height: 27px}
+.visited{padding-left: 30px;margin-right: 20px;}
+.reviews{padding-left: 20px;background-position: 0 -27px;}
+.index-slide{margin-left: 810px;width: 360px;}
+.actCal-imgLink{display: block;border: 1px #ebebeb solid;padding: 3px;}
+.actCal-imgLink img{width: 352px;height: 84px;}
+.actCal-list li{border-bottom: 1px dotted #d2d2d2;font-size: 14px;line-height: 48px;position: relative;}
+.actCal-list a{display: block;padding-right: 80px;color:#323232;font-family: Arial,'Microsoft Yahei';}
+.actCal-list a:hover{color:#325096;font-weight: bold;}
+.actCal-date{position: absolute;right:10px;top:0;width: 75px;color:#323232;font-size: 12px;f}
+.ranking{padding-top: 28px;}
+.rankingTit .active{border-bottom: 2px #f03232 solid;}
+.rankingTit{font-size: 0;}
+.rankingNav{display:inline-block;color:#323232;font-size:20px;line-height:40px;width:50%;text-align:center;cursor:pointer;border-bottom: 2px #ebebeb solid;}
+.ranking-container{width: 360px;height: 500px;overflow: hidden;position: relative;}
+.ranking-game-list li{height: 57px;padding: 21px 0;border-bottom:1px #d2d2d2 dotted;font-size: 0;width: 360px;}
+.ranking-game-list .top,.ranking-game-list .top3,.ranking-game-list img,.ranking-game-list .txt,.ranking-hardware-list .count,.ranking-hardware-list .txt,.ranking-hardware-list img{vertical-align: middle;display: inline-block;}
+.ranking-game-list .top,.ranking-game-list .top3{width: 25px;height: 25px;border-radius: 50%;font-size: 15px;color:#fff;line-height: 25px;text-align: center;margin: 0 15px 0 10px;}
+.ranking-game-list .top{background-color: #646464;}
+.ranking-game-list .top3{background-color: #f03232;}
+.ranking-game-list img{width: 92px;height: 57px;}
+.ranking-game-list .txt{padding-left: 15px;width: 200px;font-size: 16px;color:#323232;line-height: 57px;}
+.ranking-game-list a:hover .txt,.ranking-hardware-list a:hover .txt{color: #325096;font-weight: bold;}
+.ranking-hardware-list li{height: 79px;padding: 10px 0;border-bottom:1px #d2d2d2 dotted;font-size: 0;width: 370px;}
+.ranking-hardware-list .count,.ranking-hardware-list .txt{line-height: 79px;height: 79px;}
+.ranking-hardware-list .count{padding-left: 4px;width: 60px;text-align: center;font-size: 40px;color:#f03232;}
+.ranking-hardware-list .txt{font-size: 18px;color:#464646;width: 160px;padding-right: 20px;}
+.ranking-hardware-list img{width: 94px;height: 79px;}
+.index-job-link{margin-top: 29px;display: block;}
+.index-job-link img{width: 100%;height: 100px;}
+.index-job{border:1px #ebebeb solid;border-top:0 none;padding:0 1px;height: 244px;overflow: hidden;}
+.index-job a{display: block;padding: 0 12px;border-bottom: 1px #d2d2d2 dotted;line-height: 48px;color:#8c8c8c;font-size: 14px;overflow: hidden;}
+.index-job a:hover{font-weight: bold;color:#325096;}
+.fullAd img{width: 1170px;height: 110px; margin-bottom:30px;}
+.game-zol{padding: 30px 0 28px;}
+.zol-pic{float: left;display: inline;margin-right: 30px;width: 370px;height: 285px;}
+.zol-pic a,.zol-pic span{display: block;}
+.zol-pic a{width: 347px;height: 283px;padding: 10px 10px 0 11px;border:1px #dcdcdc solid; text-align:center;}
+.zol-pic a:hover{border:1px #325096 solid;}
+.zol-pic span{height: 44px;padding: 10px 0;font-size: 16px;font-weight: bold;color:#464646;line-height: 22px; text-align:left;}
+.zol-txt{margin-left: 810px;width: 360px;height: 295px;}
+.zol-ad img{width: 360px;height: 114px;}
+.zol-list{padding-top: 5px;}
+.zol-list li{height: 43px;border-bottom: 1px #d2d2d2 dotted;line-height: 43px;}
+.zol-list a{font-size: 14px;color:#464646;}
+.zol-list a:hover{font-weight: bold;color:#325096;}
+.down-tab{position: absolute;font-size: 0;right: 45px;bottom:10px;}
+.down-tab a{display: inline-block;height: 20px;font:12px/20px "SimSun";color:#999;padding:0 10px;margin-right: 10px;}
+.down-tab .active,.down-tab a:hover{color:#fff;background-color: #f03232;}
+.down-container{height:718px;overflow:hidden;position:relative;width:1170px;}
+.down-slide ul{padding-top: 10px;position: relative;margin-left: -30px;overflow: hidden;}
+.down-slide li{float: left;display: inline;width: 270px;height: 216px;margin: 20px 0 0 30px;position: relative;}
+.down-slide a,.game-name,.game-memory{display: block;}
+.down-slide a{position: relative;overflow: hidden;cursor: pointer; text-align:center;}
+.down-slide a:hover .game-infoWrap{top:3px;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+.game-img{max-width: 264px;max-height: 166px;border:1px #e6e6e6 solid;padding:2px;}
+.game-name{color:#555;display:block;font:14px/18px "SimSun";height:18px;overflow:hidden;padding-top:6px;text-align:center;}
+.game-memory{font:12px/14px "SimSun";color:#999;text-align: center;}
+.game-infoWrap{position:absolute;top:-169px;left:3px;width:264px;height:166px;z-index:1;-webkit-transition:all .2s ease-out;-o-transition:all .2s ease-out;transition:all .2s ease-out;}
+.opacity{position: absolute;width: 100%;height: 100%;background-color:#000;opacity:.7;filter:alpha(opacity=70);z-index:2;left:0;bottom:0;}
+.game-info{position: absolute;width: 100%;height: 100%;z-index: 3;}
+.game-tit{height: 34px;font:12px/34px "SimSun";position: relative;color:#fff;}
+.pc-tit{background-color: #325096;}
+.ios-tit{background-color: #3c96c8;}
+.android-tit{background-color: #23b43c;}
+.pcType,.mobileType{position: absolute;left: 15px;top:0;}
+.pcType{padding-left: 26px;background-position: 0 -228px;}
+.mobileType{padding-left: 20px;background-position: 0 -262px;}
+.game-class{position: absolute;top: 0;right: 15px;letter-spacing: 1px}
+.game-des{padding: 15px 15px 0;font: 13px/25px "SimSun";height: 102px;overflow: hidden;color:#fff;}
+.video-list{position: relative;margin-left: -30px;}
+.video-list li{float: left;display: inline;width: 370px;height: 228px;margin: 30px 0 0 30px;}
+.video-list a,.video-txt{display: block;}
+.video-list a{position: relative; text-align:center;}
+.video-list a:hover .video-opacity{display: inline-block;}
+.video-img{ max-width: 370px;max-height: 228px;}
+.video-opacity{width: 370px;height: 228px;}
+.video-txt{background:rgba(0,0,0,0) url("../images/video-txt.png") no-repeat scroll 0 0;color:#fff;font-size:15px;height:36px;left:0;line-height:36px;overflow:hidden;padding:192px 10px 0;position:absolute;text-align:center;text-overflow:ellipsis;top:0;white-space:nowrap;width:350px;}
+.photo-list a:hover{font-weight: bold;}
+.video-opacity{background:url("../images/video_play.png") center center;display:none;left:0;position:absolute;top:0;z-index:10;}
+.bbs-wrap{width: 290px;}
+.bbs-list{padding-top: 10px;}
+.bbs-list li{margin-top: 20px;}
+.bbs-list a{position: relative;display: block; text-align:center;}
+.bbs-list span{position: absolute;left:0;bottom:0;height: 30px;width: 270px;padding:0 10px;background: rgba(0,0,0,.5);filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#80000000,endColorStr=#80000000);color:#fff;font-size: 14px;line-height: 30px;text-align: center;}
+.bbs-list img{max-width: 290px;max-height: 145px;}
+:root.bbs-list span{filter: none}
+.two-column{margin-left: 320px;width: 850px;}
+.recommend-player{width: 450px;}
+.index_contribute .content{float:left;margin-left:20px;width: 335px;height: 94px;overflow: hidden;*display: inline;}
+.index_contribute li{margin-bottom: 15px;}
+.index_contribute li,.index_contribute .img{float: left;display: inline;}
+.index_contribute .img{width: 94px;height: 94px;background-position: 0 -134px}
+.index_contribute .img img{width:;position: relative;z-index: -1;}
+.index_contribute .content a{font-size: 18px;color: #282828;line-height: 32px;}
+.index_contribute .description{padding:6px 0 0 0;font-size: 14px;line-height:20px;color: #666;height: 40px;overflow: hidden;}
+.index_contribute li:hover .img{background-position: -94px -134px}
+.index_contribute li:hover .content a{font-weight:bold;}
+.bbs-topic{margin-left: 480px;width: 370px;}
+.publish{padding-top: 10px;*padding-top:30px;}
+.publish li{margin-top: 20px;height: 145px;}
+.publish a,.publish img{max-width: 370px;max-height: 145px;}
+.publish a{display:block;overflow:hidden;position:relative; text-align:center;}
+.publish i,.publish span{bottom:0;color:#fff;font-size:14px;font-weight:bold;height:30px;left:0;line-height:30px;overflow:hidden;padding:0 10px;position:absolute;text-align:center;text-overflow:ellipsis;white-space:nowrap;width:350px;}
+.publish i{background-color: #000;opacity: .6;filter:alpha(opacity=60);}
+.mid-ad,.mid-ad img{width: 850px;height: 90px;}
+.wiki-library{height:525px;overflow:hidden;}
+.dictionary_dl{margin-top: 30px;font-size: 14px;line-height: 18px;}
+.dictionary_dl,.dictionary_dl a{color:#333;}
+.dictionary_dl a:hover{font-weight: bold;color:#325096;}
+.dictionary_dl dt{float:left;width: 70px;}
+.dictionary_dl dt,.dictionary_dl dd{height: 80px;}
+.dictionary_dl dd{float:left;width:160px;padding-left: 65px;background-position: 0 -54px;}
+.dictionary_dl dd:last-child{height:50px;}
+.dictionary_dl dd a{display:block;margin-bottom:14px;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;}
+/*.wiki-photographs{height: 525px;}*/
+.wiki-container{position: relative;padding: 50px 50px 0;overflow: hidden;}
+.wiki-wrap{overflow: hidden;position: relative;}
+.column_wiki_list{position: relative;left:-64px;}
+.column_wiki_list,.column_wiki_list li{height: 395px;overflow: hidden;}
+.column_wiki_list li{float:left;width:220px;padding-left: 64px;}
+.column_wiki_list img{width: 218px;height: 343px;}
+.column_wiki_list a{display:block;}
+.column_wiki_list span{display: block;font-size:14px;line-height:45px;color:#333;text-align: center;}
+.column_wiki_list .description{padding: 0 10px;font-size: 13px;line-height: 16px;color: #8c8c8c;}
+.column_wiki_prev,.column_wiki_next{position: absolute;top:190px;width: 37px;height: 37px;}
+.column_wiki_prev{background-position:0 -296px;left:0;}
+.column_wiki_next{background-position:-36px -296px;right:0;}
+.column_wiki_prev:hover{background-position:0 -333px;}
+.column_wiki_next:hover{background-position:-36px -333px;}
+.friend-link{background-color: #282828;padding: 4px 0;font:13px/26px "SimSun";}
+.friend{width: 1150px;padding: 0 10px;}
+.friend-link,.friend-link a{color:#787878;}
+.friend-link a{display: inline-block;}
+.friend-link a:hover{text-decoration: underline;}
+.firstAd a img{ margin:30px 0 0 0;}

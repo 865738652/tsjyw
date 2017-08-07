@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="t_user" catalog="zhangtao" class="User">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_monkey" catalog="hibernatetest" class="Monkey">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_team" catalog="hibernatetest" class="Team">
+		<primary-key>
+			<generator class="uuid.hex"></generator>
+		</primary-key>
+	</table>
+	<table name="t_county" catalog="tsjyw" class="County">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_countymanager" catalog="tsjyw"
+		class="CountyManager">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_user" catalog="tsjyw" class="User">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_apply" catalog="tsjyw" class="Apply">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_business" catalog="tsjyw" class="Business">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_businessmanager" catalog="tsjyw" class="BusinessManager">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_article" catalog="tsjyw" class="Article">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_askquestion" catalog="tsjyw" class="AskQuestion">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_exchangerecord" catalog="tsjyw"
+		class="ExchangeRecord">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_famousteacher" catalog="tsjyw"
+		class="FamousTeacher">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_notice" catalog="tsjyw" class="Notice">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_reply" catalog="tsjyw" class="Reply">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_respquestion" catalog="tsjyw" class="RespQuestion">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_schoolmanager" catalog="tsjyw"
+		class="SchoolManager">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_student" catalog="tsjyw" class="Student">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_teacher" catalog="tsjyw" class="Teacher">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+
+
+
+
+	<table name="t_volunteer" catalog="tsjyw" class="Volunteer">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+
+	<table name="t_image" catalog="tsjyw" class="Image">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_video" catalog="tsjyw" class="Video">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+
+
+	<table name="t_courseteacher" catalog="tsjyw"
+		class="CourseTeacher">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_grademaster" catalog="tsjyw" class="GradeMaster">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_schoolmaster" catalog="tsjyw" class="SchoolMaster">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_school" catalog="tsjyw" class="School">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_commonquestion" catalog="tsjyw"
+		class="CommonQuestion">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_agelevel" catalog="tsjyw" class="AgeLevel"></table>
+	<table name="t_announcement" catalog="tsjyw" class="Announcement">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_applystate" catalog="tsjyw" class="ApplyState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_articlestate" catalog="tsjyw" class="ArticleState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_askquestionstate" catalog="tsjyw"
+		class="AskQuestionState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_askquestiontype" catalog="tsjyw"
+		class="AskQuestionType">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_attachment" catalog="tsjyw" class="Attachment">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_attachmenttype" catalog="tsjyw"
+		class="AttachmentType">
+	</table>
+	<table name="t_class" catalog="tsjyw" class="ClassGrage">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_exchangerecordstate" catalog="tsjyw"
+		class="ExchangeRecordState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_goods" catalog="tsjyw" class="Goods">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_goodsstate" catalog="tsjyw" class="GoodState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_goodstype" catalog="tsjyw" class="GoodsType"></table>
+	<table name="t_grade" catalog="tsjyw" class="Grade">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_module" catalog="tsjyw" class="Module">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_modulestate" catalog="tsjyw" class="ModuleState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_moduletype" catalog="tsjyw" class="ModuleType"></table>
+	<table name="t_netcourse" catalog="tsjyw" class="NetCourse">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_netcoursechargeway" catalog="tsjyw"
+		class="NetCourseChargeWay">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_netcoursetype" catalog="tsjyw"
+		class="NetCourseType">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_netteacher" catalog="tsjyw" class="NetTeacher">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_noticeaccepttype" catalog="tsjyw"
+		class="NoticeAcceptType">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_noticeaccept" catalog="tsjyw" class="NoticeAccept">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_noticestate" catalog="tsjyw" class="NoticeState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_role" catalog="tsjyw" class="Role">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_schoolcourse" catalog="tsjyw" class="SchoolCourse">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_schoolcoursestate" catalog="tsjyw"
+		class="SchoolCourseState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_schooltype" catalog="tsjyw" class="SchoolType">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_studentstate" catalog="tsjyw" class="StudentState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="t_teacherstate" catalog="tsjyw" class="TeacherState">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="v_teacher" catalog="tsjyw" class="ViewTeacher">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

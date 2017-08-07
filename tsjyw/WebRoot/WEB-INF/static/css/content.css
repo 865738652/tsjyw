@@ -1,0 +1,616 @@
+body,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+img,
+div {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+body,
+ul,
+ol,
+li,
+p,
+form,
+fieldset,
+table,
+td {
+    font-family: "宋体";
+}
+
+body {
+    background: #fff;
+    color: #000;
+}
+
+td,
+li,
+select,
+input,
+textarea,
+div {
+    font-size: 12px;
+}
+
+ul,
+dl {
+    list-style-type: none;
+}
+
+select,
+input {
+    vertical-align: middle;
+}
+
+a:link {
+    color: #333;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #333;
+    text-decoration: none;
+}
+/*start*/
+
+.container {
+    width: 1024px;
+    margin: auto;
+    position: relative;
+}
+
+img {
+    margin-bottom: -5px;
+}
+
+.space0 {
+    height: 0px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space1 {
+    height: 3px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space3 {
+    height: 3px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space4 {
+    height: 4px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space5 {
+    height: 5px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space6 {
+    height: 6px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space7 {
+    height: 7px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space8 {
+    height: 8px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space10 {
+    height: 10px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space12 {
+    height: 12px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space15 {
+    height: 15px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.space50 {
+    height: 50px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+}
+
+.line0 {
+    height: 0px;
+    overflow: hidden;
+    clear: both;
+    font-size: 0px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.width_space15 {
+    width: 15px;
+    height: 96px;
+    overflow: hidden;
+    font-size: 0px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+/*---------顶部---------*/
+
+.head_top {
+    width: 100%;
+    min-width: 1024px;
+    height: 35px;
+    background: #a1a7b3;
+    color: #FFF;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 35px;
+    overflow: hidden;
+}
+
+.head_top .link {
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+.head_top .link a {
+    color: #FFF;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+}
+
+.head_top .data {
+    padding-right: 30px;
+    font-size: 12px;
+}
+
+.head_top .map {
+    padding-right: 30px;
+    font-size: 12px;
+}
+
+.head_top .map .img {
+    padding: 3px 8px 0px 0px;
+    width: 29px;
+    height: 29px;
+}
+
+.head_top .map .img img {
+    width: 29px;
+    height: 29px;
+}
+
+.head_top .map a {
+    color: #FFF;
+}
+/*--------导航--------*/
+
+.head {
+    width: 100%;
+    min-width: 1024px;
+    background: #537180 url(../images/head_b.gif) repeat-x;
+    height: 110px;
+}
+
+.head .channel {
+    width: 716px;
+    margin-top: 78px;
+}
+
+.head .channel li {
+    float: left;
+    list-style-type: none;
+    width: 79px;
+    text-align: center;
+    font-size: 14px;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    height: 30px;
+    line-height: 30px;
+}
+
+.head .channel li a {
+    color: #FFF;
+    display: block;
+}
+
+.head .channel li a.active,.head .channel li a:hover {
+    background: url(../images/under_line.gif) no-repeat 9px 25px;
+    text-decoration: none;
+    color: #4afb4b;
+    display: block;
+}
+/*--------列表开始--------*/
+
+.bg {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/bigpic.jpg) no-repeat center top;
+}
+
+.bg1162 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1162.jpg) no-repeat center top;
+}
+
+.bg1163 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1163.jpg) no-repeat center top;
+}
+
+.bg1164 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1164.jpg) no-repeat center top;
+}
+
+.bg1165 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1165.jpg) no-repeat center top;
+}
+
+.bg1166 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1166.jpg) no-repeat center top;
+}
+
+.bg1167 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1167.jpg) no-repeat center top;
+}
+
+.bg1168 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1168.jpg) no-repeat center top;
+}
+
+.bg1169 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1169.jpg) no-repeat center top;
+}
+
+.bg1191 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1191.jpg) no-repeat center top;
+}
+
+.bg1292 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1292.jpg) no-repeat center top;
+}
+
+.bg1293 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1293.jpg) no-repeat center top;
+}
+
+.bg1294 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1294.jpg) no-repeat center top;
+}
+
+.bg1295 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1295.jpg) no-repeat center top;
+}
+
+.bg1252 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1252.jpg) no-repeat center top;
+}
+
+.bg1253 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1253.jpg) no-repeat center top;
+}
+
+.bg1254 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1254.jpg) no-repeat center top;
+}
+
+.bg1255 {
+    width: 100%;
+    margin: auto;
+    min-width: 1024px;
+    background: #eff3df url(../images/1255.jpg) no-repeat center top;
+}
+
+#bg .channel {
+    width: 168px;
+    height: 718px;
+    background: #FFF;
+    border: 1px solid #a1b3b0;
+    padding: 15px 15px 0px 15px;
+}
+
+#bg .channel .father {
+    width: 100%;
+    height: 50px;
+    background: #cb6500;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 18px;
+    color: #FFF;
+    line-height: 50px;
+    letter-spacing: 2px;
+    text-indent: 20px;
+}
+
+#bg .channel .children {
+    padding-top: 10px;
+}
+
+#bg .channel .children .selected {
+    background: #008bd1;
+}
+
+#bg .channel .children .selected a {
+    color: #FFF;
+}
+
+#bg .channel .children li {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #d1d1d1;
+    text-indent: 20px;
+}
+
+#bg .list {
+    width: 1024px;
+    min-height: 660px;
+    padding-top: 75px;
+}
+
+#bg .list .current_location {
+    height: 30px;
+    line-height: 30px;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    text-align: right;
+    padding-right: 5px;
+}
+
+#bg .list .list_border {
+    width: 1022px;
+    min-height: 628px;
+    border: 1px solid #a1b3b0;
+    background: #FFF;
+}
+
+#bg .list .list_border .list_channel {
+    background: url(../images/channel_pic.gif) no-repeat;
+    width: 100%;
+    height: 48px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #a1b3b0;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    color: #008bd1;
+    line-height: 48px;
+    text-indent: 45px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+#bg .list .list_border .news_list {
+    padding: 0px 111px;
+    width: 800px;
+}
+
+#bg .list .list_border .news_list li {
+    background: url(../images/list_point.gif) no-repeat 3px 10px;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 13px;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999;
+    vertical-align: middle;
+}
+
+#bg .list .list_border .news_list .data {
+    width: 82px;
+    text-align: right;
+    padding-right: 5px;
+    height: 25px;
+}
+
+#bg .list .list_border .news_list .title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 25px;
+    margin: auto;
+    padding-bottom: 12px;
+}
+
+#bg .list .list_border .news_list .info {
+    background: #CCC;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    margin: auto;
+}
+
+#bg .list .list_border .news_list .content {
+    padding-top: 5px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+#bg .list .list_border .news_list .content p {
+    padding: 8px 0px;
+}
+
+#bg .list .list_border .pape {
+    width: 100%;
+    height: 30px;
+    padding-top: 14px;
+    margin: auto;
+    text-align: center;
+}
+/*--------底部开始--------*/
+
+.foot {
+    width: 100%;
+    min-width: 1024px;
+    height: 150px;
+    background: #537180;
+}
+
+.foot .foot_pic {
+    padding: 45px 0 0 40px;
+    width: 58px;
+}
+
+.foot .foot_describe {
+    padding: 30px 0 0 10px;
+    width: 450px;
+}
+
+.foot .foot_describe li {
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    height: 18px;
+    line-height: 18px;
+    color: #FFF;
+}
+
+.foot .friendly_link {
+    width: 240px;
+    height: 165px;
+}
+
+.foot .friendly_link .link_name {
+    padding-top: 20px;
+    color: #FFF;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.foot .friendly_link li {
+    color: #FFF;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 30px;
+    letter-spacing: 2px;
+}
+
+.foot .friendly_link li a {
+    color: #FFF;
+    font-family: Microsoft Yahei, Helvetica, sans-serif;
+}
+
+.foot2 {
+    position: absolute;
+    bottom: 40px;
+    left: 258px;
+}
+
+.foot3 {
+    position: absolute;
+    bottom: 40px;
+    left: 298px;
+}
